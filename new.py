@@ -16,7 +16,7 @@ st.set_page_config(
     page_icon="📊",  # You can replace this with an emoji or a URL to an image
     layout="wide"
 )
-img1_path = r"giphy.gif"
+img1_path = r"0bb6dqsiab451.gif"
 img2_path = r"giphy.gif"
 background_generator = BackgroundCSSGenerator(img1_path, img2_path)
 page_bg_img = background_generator.generate_background_css()
