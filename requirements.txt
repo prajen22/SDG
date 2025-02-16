@@ -1,0 +1,7 @@
+streamlit
+numpy
+pandas
+plotly
+cassandra-driver
+joblib
+serpapi
