@@ -5,3 +5,5 @@ plotly
 cassandra-driver
 joblib
 serpapi
+google-search-results
+
