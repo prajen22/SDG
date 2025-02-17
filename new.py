@@ -534,6 +534,7 @@ else:
                                         st.success(f"Feedback for {selected_teacher} submitted successfully!")
                                         st.toast(f"Feedback for {selected_teacher} submitted successfully!")
                                         st.success("Feedback saved in the database successfully!")
+                                        st.balloons()
                             
                                     except Exception as e:
                                         st.error(f"Error saving feedback: {e}")
