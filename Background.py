@@ -19,7 +19,7 @@ class BackgroundCSSGenerator:
         img1 = self.get_img_as_base64(self.img1_path)
         
 
-        if not img1 or:
+        if not img1:
             return "<style></style>"  # Return empty CSS if images are missing
 
         css = f"""
