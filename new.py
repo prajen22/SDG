@@ -508,14 +508,14 @@ else:
                             
                             rating = st.slider(f"Rate {selected_teacher} (Out of 5)", 1, 5, 3)
 
-                            if st.button("Submit Feedback"):
+                            if st.button("Submit Rating"):
                                 st.success(f"Your feedback for {selected_teacher} has been submitted!")
                                 st.toast(f"Your feedback for {selected_teacher} has been submitted!")
                                 st.balloons()
 
                             st.subheader("enter teacher feedback")
                             st.text_input(f"enter feedback for {selected_teacher}")
-                            if st.button("Submit Rating"):
+                            if st.button("Submit Feedback"):
                                 st.success(f"Your rating for {selected_teacher} has been submitted!")
                                 st.toast(f"Your rating for {selected_teacher} has been submitted!")
                                 st.balloons()
