@@ -494,6 +494,8 @@ else:
                 selected_teacher = st.sidebar.selectbox("Select Teacher", teacher_names)
 
                 if selected_teacher:
+
+                        
                     
                         faculty = get_faculty_data(selected_teacher)
                         profile_link, research_papers = fetch_research_data(selected_teacher)
@@ -526,7 +528,7 @@ else:
                             if st.button("Submit Feedback"):
                                 if feedback.strip():  # Ensure feedback is not empty
                                     try:
-                                        query = "UPDATE teachers_copy SET student_feedback = %s WHERE {selected_teacher} = %s;"
+                                        query = "UPDATE teachers_copy SET student_feedback = %s WHERE Mrs.T.N.Charanya = %s;"
                                         session.execute(query, (feedback, selected_teacher))
                                         
                                         st.success(f"Feedback for {selected_teacher} submitted successfully!")
