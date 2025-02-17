@@ -519,9 +519,15 @@ else:
                                 st.toast(f"Your feedback for {selected_teacher} has been submitted!")
                                 st.balloons()
 
-                            st.subheader("enter teacher feedback")
-                            st.text_input(f"enter feedback for {selected_teacher}")
+                            st.subheader("📝 Teacher Feedback")
+                            feedback = st.text_area(f"Feedback for {selected_student}")
+
                             if st.button("Submit Feedback"):
-                                st.success(f"Your rating for {selected_teacher} has been submitted!")
-                                st.toast(f"Your rating for {selected_teacher} has been submitted!")
-                                st.balloons()
+                                st.success(f"Feedback for {selected_teacher} submitted successfully!")
+                                st.toast(f"Feedback for {selected_teacher} submitted successfully!")
+                                
+                                
+                                if feedback_text:
+                                    query = f"UPDATE teachers_copy SET student_feedback = '{feedback_text}' WHERE student_name = '{selected_teacher}';"
+                                    session.execute(query)
+                                    st.success("Feedback saved in database successfully!")
