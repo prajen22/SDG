@@ -458,6 +458,12 @@ else:
                             if st.button("Submit Feedback"):
                                 st.success(f"Feedback for {selected_student} submitted successfully!")
                                 st.toast(f"Feedback for {selected_student} submitted successfully!")
+                                
+                                
+                                if feedback_text:
+                                    query = f"UPDATE teachers_copy SET student_feedback = '{feedback_text}' WHERE student_name = '{selected_student}';"
+                                    session.execute(query)
+                                    st.success("Feedback saved in database successfully!")
 
     elif st.session_state.user_role == "Student":
 
