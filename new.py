@@ -520,7 +520,7 @@ else:
                                 st.balloons()
 
                             st.subheader("📝 Teacher Feedback")
-                            feedback = st.text_area(f"Feedback for {selected_student}")
+                            feedback = st.text_area(f"Feedback for {selected_teacher}")
 
                             if st.button("Submit Feedback"):
                                 st.success(f"Feedback for {selected_teacher} submitted successfully!")
