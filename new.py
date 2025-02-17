@@ -17,8 +17,8 @@ st.set_page_config(
     layout="wide"
 )
 img1_path = r"0bb6dqsiab451.gif"
-img2_path = r"giphy.gif"
-background_generator = BackgroundCSSGenerator(img1_path, img2_path)
+
+background_generator = BackgroundCSSGenerator(img1_path)
 page_bg_img = background_generator.generate_background_css()
 st.markdown(page_bg_img, unsafe_allow_html=True)
 # Dummy user credentials
