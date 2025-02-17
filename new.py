@@ -520,14 +520,16 @@ else:
                                 st.balloons()
 
                             st.subheader("📝 Teacher Feedback")
-                            feedback = st.text_area(f"Feedback for {selected_teacher}")
 
+                            feedback = st.text_area(f"Feedback for {selected_teacher}")
+                            
                             if st.button("Submit Feedback"):
-                                st.success(f"Feedback for {selected_teacher} submitted successfully!")
-                                st.toast(f"Feedback for {selected_teacher} submitted successfully!")
-                                
-                                
-                                if feedback_text:
-                                    query = f"UPDATE teachers_copy SET student_feedback = '{feedback_text}' WHERE student_name = '{selected_teacher}';"
-                                    session.execute(query)
+                                if feedback.strip():  # Ensure feedback is not empty
+                                    query = "UPDATE teachers_copy SET student_feedback = ? WHERE teacher_name = ?"
+                                    session.execute(query, (feedback, selected_teacher))
+                                    
+                                    st.success(f"Feedback for {selected_teacher} submitted successfully!")
+                                    st.toast(f"Feedback for {selected_teacher} submitted successfully!")
                                     st.success("Feedback saved in database successfully!")
+                                else:
+                                    st.warning("Please enter feedback before submitting.")
