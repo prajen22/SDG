@@ -522,14 +522,19 @@ else:
                             st.subheader("📝 Teacher Feedback")
 
                             feedback = st.text_area(f"Feedback for {selected_teacher}")
-                            
+
                             if st.button("Submit Feedback"):
                                 if feedback.strip():  # Ensure feedback is not empty
-                                    query = "UPDATE teachers_copy SET student_feedback = %s WHERE teacher_name = %s"
-                                    session.execute(query, (feedback, selected_teacher))
-                                    
-                                    st.success(f"Feedback for {selected_teacher} submitted successfully!")
-                                    st.toast(f"Feedback for {selected_teacher} submitted successfully!")
-                                    st.success("Feedback saved in database successfully!")
+                                    try:
+                                        query = "UPDATE teachers_copy SET student_feedback = %s WHERE teacher_name = %s;"
+                                        session.execute(query, (feedback, selected_teacher))
+                                        
+                                        st.success(f"Feedback for {selected_teacher} submitted successfully!")
+                                        st.toast(f"Feedback for {selected_teacher} submitted successfully!")
+                                        st.success("Feedback saved in the database successfully!")
+                            
+                                    except Exception as e:
+                                        st.error(f"Error saving feedback: {e}")
+                            
                                 else:
                                     st.warning("Please enter feedback before submitting.")
