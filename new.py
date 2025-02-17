@@ -525,7 +525,7 @@ else:
                             
                             if st.button("Submit Feedback"):
                                 if feedback.strip():  # Ensure feedback is not empty
-                                    query = "UPDATE teachers_copy SET student_feedback = ? WHERE teacher_name = ?"
+                                    query = "UPDATE teachers_copy SET student_feedback = %s WHERE teacher_name = %s"
                                     session.execute(query, (feedback, selected_teacher))
                                     
                                     st.success(f"Feedback for {selected_teacher} submitted successfully!")
